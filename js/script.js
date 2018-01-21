@@ -1,10 +1,5 @@
-function removeParent(link) {
-  event.currentTarget.parentNode.remove();
-}
-
 function setupRemoveButton(removeButton, removeIcon) {
   removeButton.setAttribute("class", "remove-button");
-  removeButton.setAttribute("onclick", "removeParent()");
   removeIcon.setAttribute("class", "fas fa-trash-alt");
   removeButton.appendChild(removeIcon);
 }
@@ -52,12 +47,18 @@ function submitForm(event, memeForm) {
   createMeme(memeImg, topCaption, bottomCaption, imgUrl);
   renderMeme(newMeme, memeImg, topCaption, bottomCaption);
   
-  memeBlock.setAttribute("class", "meme-block grid-item");
+  memeBlock.setAttribute("class", "meme-block");
   memeBlock.appendChild(removeButton);
   memeBlock.appendChild(downloadLink);
   memeBlock.appendChild(newMeme);
 
   memesSection.appendChild(memeBlock);
+
+  memesSection.addEventListener("click", function(event) {
+    if (event.path[2].className === "remove-button") {
+      event.path[2].parentNode.remove();
+    }
+  });
 
   memeForm.reset();
 
@@ -74,5 +75,7 @@ function submitForm(event, memeForm) {
 window.onload = function() {
   var memeForm = document.getElementById("meme-form");
 
-  memeForm.addEventListener("submit", function(event) { submitForm(event, memeForm) });
+  memeForm.addEventListener("submit", function(event) { 
+    submitForm(event, memeForm); 
+  });
 };
