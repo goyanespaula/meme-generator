@@ -3,6 +3,7 @@
 ## Overview
 
 A simple meme generator 😂
+
 To run, just open index.html
 
 ## Live URL
