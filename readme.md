@@ -1,8 +1,8 @@
-# Warbler
+# Meme Generator
 
 ## Overview
 
-A simple meme generator [Paula Goyanes](https://github.com/goyanespaula)
+A simple meme generator 😂
 To run, just open index.html
 
 ## Live URL
